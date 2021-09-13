@@ -26,7 +26,6 @@
     "build": "lerna run build",
     "dev": "lerna run dev",
     "test": "lerna run test",
-    "bootstrap": "lerna exec npm install",
     "publish": "yarn test && yarn build && lerna publish --force-publish",
     "commit": "yarn git-cz",
     "test:chromatic": "yarn lerna run test:chromatic",

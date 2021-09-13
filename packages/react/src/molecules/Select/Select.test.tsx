@@ -1,3 +1,8 @@
+/**
+ * @jest-environment jsdom
+ */
+
+
 import React from 'react'
 import Select from './Select'
 
@@ -15,14 +20,20 @@ const options = [{
 }]
 
 test('renders all options passed to it', () => {
-    const { getAllByRole, getByTestId } = render(<Select options={options} />)
 
-    fireEvent.click(getByTestId('DseSelectButton'))
+     jest.isolateModules(() => {
+        const { getAllByRole, getByTestId } = render(<Select options={options} />)
 
-    expect(getAllByRole('menuitemradio')).toHaveLength(options.length)
+         fireEvent.click(getByTestId('DseSelectButton'))
+
+        expect(getAllByRole('menuitemradio')).toHaveLength(options.length)
+
+    })
 })
 
 test('renders options using custom renderOption method if passed as prop', () => {
+
+    jest.isolateModules(() => {
     const { getAllByTestId, getByTestId } = render(<Select options={options} renderOption={({ option, getOptionRecommendedProps }) => {
         return <li data-testid='CustomRenderOption' {...getOptionRecommendedProps()}>{option.label}</li>
     }} />)
@@ -30,9 +41,12 @@ test('renders options using custom renderOption method if passed as prop', () =>
     fireEvent.click(getByTestId('DseSelectButton'))
 
     expect(getAllByTestId('CustomRenderOption')).toHaveLength(options.length)
+    })
 })
 
 test('calls the onOptionSelected prop with the selected option and its index if passed', () => {
+
+    jest.isolateModules(() => {
     const onOptionSelected = jest.fn()
     const { getAllByRole, getByTestId } = render(<Select options={options} onOptionSelected={onOptionSelected} />)
 
@@ -41,9 +55,12 @@ test('calls the onOptionSelected prop with the selected option and its index if 
     fireEvent.click(getAllByRole('menuitemradio')[0])
 
     expect(onOptionSelected).toHaveBeenCalledWith(options[0], 0)
+    })
 })
 
 test('the button label changes to the selected option label', () => {
+
+    jest.isolateModules(() => {
     const { getAllByRole, getByTestId } = render(<Select options={options} />)
 
     fireEvent.click(getByTestId('DseSelectButton'))
@@ -51,9 +68,12 @@ test('the button label changes to the selected option label', () => {
     fireEvent.click(getAllByRole('menuitemradio')[0])
 
     expect(getByTestId('DseSelectButton')).toHaveTextContent(options[0].label)
+    })
 })
 
 test('snapshot of the selected option state', () => {
+
+    jest.isolateModules(() => {
     const { getAllByRole, getByTestId, asFragment } = render(<Select options={options} />)
 
     fireEvent.click(getByTestId('DseSelectButton'))
@@ -61,24 +81,34 @@ test('snapshot of the selected option state', () => {
     fireEvent.click(getAllByRole('menuitemradio')[0])
 
     expect(asFragment()).toMatchSnapshot()
+    })
 })
 
 test('snapshot of the base state', () => {
+
+    jest.isolateModules(() => {
     const { asFragment } = render(<Select options={options} />)
 
     expect(asFragment()).toMatchSnapshot()
+    })
 })
 
 test('snapshot of the options menu open state', () => {
+
+    jest.isolateModules(() => {
     const { getByTestId, asFragment } = render(<Select options={options} />)
 
     fireEvent.click(getByTestId('DseSelectButton'))
 
     expect(asFragment()).toMatchSnapshot()
+    })
 })
 
 test('can customize select label', () => {
+
+    jest.isolateModules(() => {
     const { getByText } = render(<Select options={options} label='THIS IS A CUSTOM LABEL' />)
 
     expect(getByText(/THIS IS A CUSTOM LABEL/)).toBeInTheDocument()
+    })
 })
