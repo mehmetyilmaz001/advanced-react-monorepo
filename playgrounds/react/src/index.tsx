@@ -2,10 +2,10 @@ import React from 'react';
 
 import  ReactDOM  from 'react-dom';
 
-import  { Margin, Select } from '@ds.e/react';
-import '@ds.e/scss/lib/Utilities.css';
-import '@ds.e/scss/lib/Margin.css';
-import '@ds.e/scss/lib/Select.css';
+import  { Margin, Select } from '@mds.e/react';
+import '@mds.e/scss/lib/Utilities.css';
+import '@mds.e/scss/lib/Margin.css';
+import '@mds.e/scss/lib/Select.css';
 
 ReactDOM.render(
     <Margin>

@@ -1,6 +1,6 @@
 
 import React from 'react'
-import { FontSize } from '@ds.e/foundation'
+import { FontSize } from '@mds.e/foundation'
 
 export interface TextProps {
     size?: keyof typeof FontSize
