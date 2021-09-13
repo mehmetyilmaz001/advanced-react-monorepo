@@ -1,6 +1,6 @@
 {
   "name": "@mds.e/react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
   "main": "lib/index.js",
   "scripts": {
@@ -47,5 +47,5 @@
   "publishConfig": {
     "access": "public"
   },
-  "gitHead": "62ae0cbcd05e664eaa4b1f85848ff408ae6e4f6e"
+  "gitHead": "354d7e20cc140f688b6c373d960d6715e9e76ad9"
 }
