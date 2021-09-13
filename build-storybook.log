@@ -1,0 +1,19 @@
+$ yarn build && yarn lerna run build-storybook --output-dir /var/folders/vy/6nw8spmn6g9541bhw6w4pkbw0000gp/T/chromatic--11390-n4D3ppHSwQlL
+$ lerna run build
+lerna notice cli v3.22.1
+lerna info Executing command in 3 packages: "yarn run build"
+@ds.e/foundation: $ tsc
+@ds.e/react: $ rollup -c
+@ds.e/scss: $ node src/scripts/build.js
+@ds.e/react: src/index.ts → lib...
+@ds.e/react: created lib in 3.4s
+lerna success run Ran npm script 'build' in 3 packages in 6.4s:
+lerna success - @ds.e/foundation
+lerna success - @ds.e/react
+lerna success - @ds.e/scss
+$ /Users/mehmetyilmaz/Projects/ds.e/node_modules/.bin/lerna run build-storybook --output-dir /var/folders/vy/6nw8spmn6g9541bhw6w4pkbw0000gp/T/chromatic--11390-n4D3ppHSwQlL
+ERR! lerna Unknown arguments: output-dir, outputDir
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
+error Command failed with exit code 1.
+info Visit https://yarnpkg.com/en/docs/cli/run for documentation about this command.
